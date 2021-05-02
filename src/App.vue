@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <h2 class="is-size-2">Pokedex</h2>
+      <h2 class="is-size-2">PokeCatalog</h2>
       <h5>Bem vindo ao meu catálogo de pokemons, divirta-se!!!</h5>
       <hr />
 

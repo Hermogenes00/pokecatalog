@@ -1,8 +1,8 @@
 # pokedex
+### Projeto Desenvolvido em Vue.js
 
-## Project setup
 ```
-npm install
+Catálogo de pokemons, utilizando api : https://pokeapi.co
 ```
 
 ### Compiles and hot-reloads for development
@@ -19,6 +19,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

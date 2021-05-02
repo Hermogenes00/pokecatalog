@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <div class="column is-half is-offset-one-quarter">
-      <h4 class="is-size-4">Pokedex</h4>
+    <div class="container">
+      <h2 class="is-size-2">Pokedex</h2>
+      <h5>Bem vindo ao meu catálogo de pokemons, divirta-se!!!</h5>
       <hr />
+
       <input
         type="text"
         name=""
@@ -11,18 +13,37 @@
         v-model="busca"
         id=""
       />
+
       <button
         id="buscaBtn"
-        class="button is-fullwidth mt-1 has-background-primary has-text-white"
+        class="button is-fullwidth mt-3 has-background-primary has-text-white"
         @click="buscar"
       >
         Buscar
       </button>
 
-      <div v-for="(poke, index) in filteredPokemons" :key="poke.url">
-        <pokemon :name="poke.name" :num="index + 1" :url="poke.url" />
+      <div class="columns is-multiline is-mobile">
+        <div
+          class="column is-4"
+          v-for="(poke, index) in filteredPokemons"
+          :key="poke.url"
+        >
+          <pokemon :name="poke.name" :num="index + 1" :url="poke.url" />
+        </div>
       </div>
     </div>
+    <!--Fechou container-->
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Projeto desenvolvido por Hermógenes Neto</strong><br>      
+       <a href="https://github.com/Hermogenes00">Github</a> | <a href="https://www.linkedin.com/in/hermogenesneto/">LinkedIn</a> <br>
+    </p>
+  </div>
+</footer>
+
+    <!--Footer-->
+
   </div>
 </template>
 
@@ -39,7 +60,7 @@ export default {
   data() {
     return {
       pokemons: [],
-      filteredPokemons:[],
+      filteredPokemons: [],
       busca: "",
     };
   },
@@ -53,18 +74,19 @@ export default {
       })
       .catch((err) => console.log(err));
   },
-  methods:{
-    buscar:function(){
-      this.filteredPokemons = this.pokemons
+  methods: {
+    buscar: function () {
+      this.filteredPokemons = this.pokemons;
       if (this.busca == "" || this.busca == " ") {
-        this.pokemons = this.filteredPokemons
-      }else{
-        this.filteredPokemons = this.pokemons.filter(pokemon=>pokemon.name==this.busca)
+        this.pokemons = this.filteredPokemons;
+      } else {
+        this.filteredPokemons = this.pokemons.filter(
+          (pokemon) => pokemon.name == this.busca
+        );
       }
-    }
+    },
   },
   computed: {
-
     // resultadoBusca: function () {
     //   if (this.busca == "" || this.busca == " ") {
     //     return this.pokemons;

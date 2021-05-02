@@ -1,15 +1,21 @@
 <template>
-  <div id="pokemon" class="card">
+  <div id="pokemon mt-2 is-background-black">
     <div class="card-image">
       <figure>
-        <img @mouseover="mudarSprite" @mouseout="mudarSprite" :src="currentImg" width="30%" :alt="name" />
+        <img
+          @mouseover="mudarSprite"
+          @mouseout="mudarSprite"
+          :src="currentImg"
+          width="30%"
+          :alt="name"
+        />
       </figure>
     </div>
 
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{ num }}-{{ name }}</p>
+          <p class="title is-4">{{ name }}</p>
           <p class="subtitle is-6">{{ pokemon.type }}</p>
         </div>
       </div>
@@ -28,7 +34,7 @@ export default {
         this.pokemon.type = res.data.types[0].type.name;
         this.pokemon.front = res.data.sprites.front_default;
         this.pokemon.back = res.data.sprites.back_default;
-        this.currentImg = this.pokemon.front
+        this.currentImg = this.pokemon.front;
       })
       .catch((err) => console.log(err));
   },
@@ -58,13 +64,13 @@ export default {
   methods: {
     mudarSprite: function () {
       console.log("clicou");
-      if(this.isFront){
-          this.currentImg = this.pokemon.back
-          this.isFront = false
-      }else{
-          this.currentImg = this.pokemon.front
-          this.isFront = true
-      }      
+      if (this.isFront) {
+        this.currentImg = this.pokemon.back;
+        this.isFront = false;
+      } else {
+        this.currentImg = this.pokemon.front;
+        this.isFront = true;
+      }
     },
   },
 };
